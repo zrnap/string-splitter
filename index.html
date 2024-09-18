@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Block Splitter</title>
+    <style>
+        #inputString {
+            width: 500px;
+        }
+        button {
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Enter a String to Split into Blocks of 4</h2>
+    <form id="blockForm">
+        <input type="text" id="inputString" placeholder="Enter your string here">
+        <button type="button" onclick="splitString()">Split</button>
+    </form>
+
+    <h3>Result:</h3>
+    <div id="result"></div>
+
+    <script>
+        function splitString() {
+            let inputString = document.getElementById('inputString').value;
+            let chunkSize = 4;
+            let resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';  // Clear previous result
+
+            for (let i = 0; i < inputString.length; i += chunkSize) {
+                let chunk = inputString.slice(i, i + chunkSize);
+                // Append each chunk to the result div
+                let p = document.createElement('p');
+                p.textContent = chunk;
+                resultDiv.appendChild(p);
+            }
+        }
+    </script>
+
+</body>
+</html>
